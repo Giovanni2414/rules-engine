@@ -6,7 +6,7 @@ export const EVALUATE = 'rules/eval'
 
 export class CRUDService {
 
-    static baseUrl = 'http://ec2-3-238-92-30.compute-1.amazonaws.com:80800/';
+    static baseUrl = 'http://ec2-3-238-92-30.compute-1.amazonaws.com:8080/';
 
 
     static getExtraInfo(serviceRoute, itemId) {
@@ -50,6 +50,11 @@ export class CRUDService {
 
             });
 
+    }
+
+    static deleteRule(serviceRoute, itemId) {
+        const url = this.baseUrl + serviceRoute + '/' + itemId
+        return axios.delete(url).then(res => res.status);
     }
 
 }

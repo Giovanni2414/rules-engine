@@ -86,6 +86,7 @@
 <script>
 import { useExpressionsStore } from "../stores/expressions/expressions.js";
 import { mapStores } from "pinia";
+import { CRUDService, RULES} from "../service/CRUDService";
 export default {
   components: {},
   props: {},
@@ -100,7 +101,9 @@ export default {
       this.$emit("closeModal");
     },
     saveRule() {
-      const rule = this.expressionsStore.buildRule();
+      const rule = this.expressionsStore.buildRule(this.ruleName);
+      CRUDService.post(rule, RULES);
+      
       this.closeModal();
     },
   },
