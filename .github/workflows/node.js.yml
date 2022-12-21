@@ -28,6 +28,8 @@ jobs:
         run: npm install
       - name: Build Website
         run: npm run build
+      - name: Compiling Tests and running them
+        run: npm run coverage
       - name: Set AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
